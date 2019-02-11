@@ -1,0 +1,27 @@
+﻿<UserControl x:Class="MovieSelector2.View.SkresleniaDataGridUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MovieSelector2.View"
+             mc:Ignorable="d" 
+             >
+    <Grid>
+        <DataGrid ItemsSource="{Binding ListaSkreslen}" Style="{StaticResource dataGridStyle}" FontSize="10" ColumnWidth="1*">
+            <DataGrid.Resources>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="Background" Value="White" />
+                    <Setter Property="Margin" Value="3" />
+                </Style>
+                <Style TargetType="DataGridCell" x:Key="CellCenter">
+                    <Setter Property="TextBlock.TextAlignment" Value="Center" />
+                </Style>
+            </DataGrid.Resources>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Nick" Binding="{Binding Nick}" />
+                <DataGridTextColumn Header="Ilość" Binding="{Binding Ilosc}" CellStyle="{StaticResource CellCenter}"/>
+                <DataGridTextColumn Header="Średnia" Binding="{Binding Lokata}" CellStyle="{StaticResource CellCenter}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>

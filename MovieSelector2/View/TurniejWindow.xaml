@@ -1,0 +1,62 @@
+﻿<Window x:Class="MovieSelector2.View.TurniejWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MovieSelector2.View"
+        xmlns:ctrl="clr-namespace:MovieSelector2.View.ControlProperties"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:ia="http://schemas.microsoft.com/expression/2010/interactions"
+        mc:Ignorable="d"
+        Title="Turniej" Height="300" Width="300" WindowState="Maximized">
+    <Window.Resources>
+        <local:IntBackToVisibilityConverter x:Key="IntBackToVisibilityConverter" />
+        <!--<Style TargetType="UserControl" x:Key="VisibleAnimation">
+            <Style.Triggers>
+                <Trigger Property="Visibility" Value="Collapsed">
+                    <Trigger.EnterActions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                             From="1.0" To="0.0" Duration="0:0:2"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </Trigger.EnterActions>
+                </Trigger>
+            </Style.Triggers>
+        </Style>-->
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <DockPanel>
+            <TextBlock Text="{Binding GraczAktualny}" Style="{StaticResource txtStyle}" FontSize="16" FontWeight="Bold" />
+            <Button x:Name="btnLosowo" Style="{StaticResource ImageButton}" Content="Losowo" ctrl:ButtonProperties.Image="{StaticResource imgBomb}" Command="{Binding LosowyWyborCommand}" />
+            <CheckBox Content="Alfabetycznie" VerticalAlignment="Center" Margin="5" IsChecked="{Binding Alfabetycznie}"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <TextBlock Text="{Binding OstatniSkreslony}" Style="{StaticResource txtStyle}" />
+                <Button x:Name="btnUsunFilm" Style="{StaticResource ImageButton}" Content="Cofnij" ctrl:ButtonProperties.Image="{StaticResource imgCancel}" Command="{Binding CofnijWyborCommand}" />
+            </StackPanel>
+        </DockPanel>
+        <ItemsControl x:Name="icListaFilmow" Grid.Row="1" ItemsSource="{Binding ListaFilmow, UpdateSourceTrigger=PropertyChanged}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <local:FilmKartaUC Margin="5" Visibility="{Binding LokataTurniej, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource IntBackToVisibilityConverter}}" 
+                                       >
+                        <local:FilmKartaUC.InputBindings>
+                            <MouseBinding Gesture="LeftDoubleClick"  Command="{Binding ElementName=icListaFilmow, Path=DataContext.SkreslFilmCommand}" CommandParameter="{Binding}" />
+                            <MouseBinding Gesture="RightClick" Command="{Binding ElementName=icListaFilmow, Path=DataContext.WebBrowserCommand}" CommandParameter="{Binding Link}" />
+                        </local:FilmKartaUC.InputBindings>
+                    </local:FilmKartaUC>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </Grid>
+</Window>

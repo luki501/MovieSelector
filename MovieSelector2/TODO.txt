@@ -1,0 +1,2 @@
+﻿Animacja skreślania
+znależź sposób na selected rows z datagrid

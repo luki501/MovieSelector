@@ -1,0 +1,390 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D45599E0-2AAC-409C-968C-2C93559E11BE}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MovieSelector2</RootNamespace>
+    <AssemblyName>MovieSelector2</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Iconleak-Atrous-Movie.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net40\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight, Version=5.3.0.19038, Culture=neutral, PublicKeyToken=0e453835af4ee6ce, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmLightLibs.5.3.0.0\lib\net40\GalaSoft.MvvmLight.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.Extras, Version=5.3.0.19026, Culture=neutral, PublicKeyToken=f46ff315b1088208, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmLightLibs.5.3.0.0\lib\net40\GalaSoft.MvvmLight.Extras.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Expression.Interactions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net40\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Speech" />
+    <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmLightLibs.5.3.0.0\lib\net40\System.Windows.Interactivity.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Model\DataServerFacade.cs" />
+    <Compile Include="Model\FilmEF.cs">
+      <DependentUpon>MovieSelectorModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\hsp_turniejeSelectByIdFilmu_Result.cs">
+      <DependentUpon>MovieSelectorModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\hsp_tytulySelectAll_Result.cs">
+      <DependentUpon>MovieSelectorModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\hsp_tytulySelectById_Result.cs">
+      <DependentUpon>MovieSelectorModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\hsp_tytulySelectSimpleAll_Result.cs">
+      <DependentUpon>MovieSelectorModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\hsp_tytulySelectSimple_Result.cs">
+      <DependentUpon>MovieSelectorModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\hsp_tytulySelect_Result.cs">
+      <DependentUpon>MovieSelectorModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\MovieSelectorModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MovieSelectorModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\MovieSelectorModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MovieSelectorModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\MovieSelectorModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MovieSelectorModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Obiekty\Film.cs" />
+    <Compile Include="Model\Obiekty\FilmTurniej.cs" />
+    <Compile Include="Model\Obiekty\Filmy.cs" />
+    <Compile Include="Model\Obiekty\Skreslenie.cs" />
+    <Compile Include="Model\SkresleniaEF.cs">
+      <DependentUpon>MovieSelectorModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\turnieje.cs">
+      <DependentUpon>MovieSelectorModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\tytuly.cs">
+      <DependentUpon>MovieSelectorModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Ustawienia.cs" />
+    <Compile Include="ViewModel\EdycjaFilmuPageVM.cs" />
+    <Compile Include="ViewModel\IDialogService.cs" />
+    <Compile Include="ViewModel\MainWindowVM.cs" />
+    <Compile Include="ViewModel\TurniejWindowVM.cs" />
+    <Compile Include="ViewModel\WaitCursor.cs" />
+    <Compile Include="ViewModel\WindowDialogVM.cs" />
+    <Compile Include="ViewModel\WindowMovieDBVM.cs" />
+    <Compile Include="View\ControlProperties.cs" />
+    <Compile Include="View\FilmKartaUC.xaml.cs">
+      <DependentUpon>FilmKartaUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\FilmToolTipUC.xaml.cs">
+      <DependentUpon>FilmToolTipUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Konwertery.cs" />
+    <Compile Include="View\ListaFilmowPage.xaml.cs">
+      <DependentUpon>ListaFilmowPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\EdycjaFilmuPage.xaml.cs">
+      <DependentUpon>EdycjaFilmuPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SkresleniaDataGridUC.xaml.cs">
+      <DependentUpon>SkresleniaDataGridUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Switcher.cs" />
+    <Compile Include="View\TurniejWindow.xaml.cs">
+      <DependentUpon>TurniejWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\WindowAbout.xaml.cs">
+      <DependentUpon>WindowAbout.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\WindowDialog.xaml.cs">
+      <DependentUpon>WindowDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\WindowMovieDB.xaml.cs">
+      <DependentUpon>WindowMovieDB.xaml</DependentUpon>
+    </Compile>
+    <Page Include="View\FilmKartaUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\FilmToolTipUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ListaFilmowPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Model\ObservedObject.cs" />
+    <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\TrulyObservableCollection.cs" />
+    <Compile Include="ViewModel\ViewModelLocator.cs" />
+    <Compile Include="View\Behavior.cs" />
+    <Compile Include="View\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="View\EdycjaFilmuPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SkresleniaDataGridUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\TurniejWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\WindowAbout.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\WindowDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\WindowMovieDB.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="App.Config">
+      <SubType>Designer</SubType>
+    </None>
+    <EntityDeploy Include="Model\MovieSelectorModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>MovieSelectorModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model\MovieSelectorModel.edmx.diagram">
+      <DependentUpon>MovieSelectorModel.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Ikonki\accept.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Ikonki\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Ikonki\anchor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Ikonki\application_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Ikonki\application_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Ikonki\bin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Ikonki\bomb.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Ikonki\calculator.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Ikonki\calendar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Ikonki\cancel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Ikonki\cart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Ikonki\cd.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Ikonki\chart_bar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Ikonki\chart_curve.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Ikonki\clock_.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Ikonki\coins.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Ikonki\cup.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Ikonki\database_error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Ikonki\date.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Ikonki\disk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Ikonki\door_in.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Ikonki\door_out.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Ikonki\drink.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Ikonki\edit-find.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Ikonki\email.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Ikonki\folder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Ikonki\folder_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Ikonki\money.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Iconleak-Atrous-Movie.ico" />
+    <Content Include="Model\MovieSelectorModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MovieSelectorModel.edmx</DependentUpon>
+      <LastGenOutput>MovieSelectorModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\MovieSelectorModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MovieSelectorModel.edmx</DependentUpon>
+      <LastGenOutput>MovieSelectorModel.cs</LastGenOutput>
+    </Content>
+    <None Include="Resources\MSszkoda.mp3" />
+    <Resource Include="TODO.txt" />
+    <Content Include="View\Ikonki\MSszkoda.mp3" />
+    <Resource Include="View\Ikonki\arrow_right.png" />
+    <Resource Include="View\Ikonki\arrow_left.png" />
+    <Resource Include="View\Ikonki\database_add.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

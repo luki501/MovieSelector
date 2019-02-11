@@ -1,0 +1,272 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FilmyModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="turnieje">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_turnieju" Type="Int32" Nullable="false" />
+    <Property Name="id_filmu" Type="Int32" Nullable="false" />
+    <Property Name="nick" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="lokata" Type="Int32" Nullable="false" />
+    <Property Name="data_wstawienia" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="losowo" Type="Boolean" />
+    <NavigationProperty Name="tytuly" Relationship="Self.FK_turnieje_tytuly" FromRole="turnieje" ToRole="tytuly" />
+  </EntityType>
+  <EntityType Name="tytuly">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tytul" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="tytul_org" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="rezyseria" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="rok" Type="Int32" />
+    <Property Name="kategoria" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="dlugosc" Type="Int32" />
+    <Property Name="link" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="data_dodania" Type="DateTime" Precision="3" />
+    <Property Name="obejrzany" Type="DateTime" Precision="3" />
+    <Property Name="ocena" Type="Int32" />
+    <Property Name="obsada" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="opis" Type="String" MaxLength="1500" FixedLength="false" Unicode="true" />
+    <Property Name="kraj" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="imdb" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="zrodlo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="hit" Type="Boolean" />
+    <NavigationProperty Name="turnieje" Relationship="Self.FK_turnieje_tytuly" FromRole="tytuly" ToRole="turnieje" />
+    <NavigationProperty Name="tytuly1" Relationship="Self.FK_tytuly_tytuly" FromRole="tytuly" ToRole="tytuly1" />
+    <NavigationProperty Name="tytuly2" Relationship="Self.FK_tytuly_tytuly" FromRole="tytuly1" ToRole="tytuly" />
+    <Property Name="poster_link" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="nieaktywny" Type="Boolean" />
+  </EntityType>
+  <Association Name="FK_turnieje_tytuly">
+    <End Role="tytuly" Type="Self.tytuly" Multiplicity="1" />
+    <End Role="turnieje" Type="Self.turnieje" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tytuly">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="turnieje">
+        <PropertyRef Name="id_filmu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tytuly_tytuly">
+    <End Role="tytuly" Type="Self.tytuly" Multiplicity="1" />
+    <End Role="tytuly1" Type="Self.tytuly" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="tytuly">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tytuly1">
+        <PropertyRef Name="id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="FilmyEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="turnieje" EntityType="Self.turnieje" />
+    <EntitySet Name="tytuly" EntityType="Self.tytuly" />
+    <AssociationSet Name="FK_turnieje_tytuly" Association="Self.FK_turnieje_tytuly">
+      <End Role="tytuly" EntitySet="tytuly" />
+      <End Role="turnieje" EntitySet="turnieje" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tytuly_tytuly" Association="Self.FK_tytuly_tytuly">
+      <End Role="tytuly" EntitySet="tytuly" />
+      <End Role="tytuly1" EntitySet="tytuly" />
+    </AssociationSet>
+    <FunctionImport Name="hsp_turniejeInsert">
+      <Parameter Name="id_turnieju" Mode="In" Type="Int32" />
+      <Parameter Name="id_filmu" Mode="In" Type="Int32" />
+      <Parameter Name="nick" Mode="In" Type="String" />
+      <Parameter Name="lokata" Mode="In" Type="Int32" />
+      <Parameter Name="data_wstawienia" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="hsp_turniejInsertByTytul">
+      <Parameter Name="id_turnieju" Mode="In" Type="Int32" />
+      <Parameter Name="tytul" Mode="In" Type="String" />
+      <Parameter Name="nick" Mode="In" Type="String" />
+      <Parameter Name="lokata" Mode="In" Type="Int32" />
+      <Parameter Name="data_wstawienia" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="hsp_tytulyInsert">
+      <Parameter Name="tytul" Mode="In" Type="String" />
+      <Parameter Name="tytul_org" Mode="In" Type="String" />
+      <Parameter Name="rezyseria" Mode="In" Type="String" />
+      <Parameter Name="rok" Mode="In" Type="Int32" />
+      <Parameter Name="kategoria" Mode="In" Type="String" />
+      <Parameter Name="dlugosc" Mode="In" Type="Int32" />
+      <Parameter Name="link" Mode="In" Type="String" />
+      <Parameter Name="data_dodania" Mode="In" Type="DateTime" />
+      <Parameter Name="obejrzany" Mode="In" Type="DateTime" />
+      <Parameter Name="ocena" Mode="In" Type="Int32" />
+      <Parameter Name="obsada" Mode="In" Type="String" />
+      <Parameter Name="opis" Mode="In" Type="String" />
+      <Parameter Name="kraj" Mode="In" Type="String" />
+      <Parameter Name="poster" Mode="In" Type="Binary" />
+      <Parameter Name="imdb" Mode="In" Type="Decimal" />
+      <Parameter Name="zrodlo" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="hsp_tytulySelect" ReturnType="Collection(FilmyModel.hsp_tytulySelect_Result)">
+      <Parameter Name="obejrzane" Mode="In" Type="Boolean" />
+      <Parameter Name="ile" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="hsp_tytulySelectAll" ReturnType="Collection(FilmyModel.hsp_tytulySelectAll_Result)" />
+    <FunctionImport Name="hsp_tytulySelectById" ReturnType="Collection(FilmyModel.hsp_tytulySelectById_Result)">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="hsp_tytulyUpdate">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="tytul" Mode="In" Type="String" />
+      <Parameter Name="tytul_org" Mode="In" Type="String" />
+      <Parameter Name="rezyseria" Mode="In" Type="String" />
+      <Parameter Name="rok" Mode="In" Type="Int32" />
+      <Parameter Name="kategoria" Mode="In" Type="String" />
+      <Parameter Name="dlugosc" Mode="In" Type="Int32" />
+      <Parameter Name="link" Mode="In" Type="String" />
+      <Parameter Name="data_dodania" Mode="In" Type="DateTime" />
+      <Parameter Name="obejrzany" Mode="In" Type="DateTime" />
+      <Parameter Name="ocena" Mode="In" Type="Int32" />
+      <Parameter Name="obsada" Mode="In" Type="String" />
+      <Parameter Name="opis" Mode="In" Type="String" />
+      <Parameter Name="kraj" Mode="In" Type="String" />
+      <Parameter Name="poster" Mode="In" Type="Binary" />
+      <Parameter Name="imdb" Mode="In" Type="Decimal" />
+      <Parameter Name="zrodlo" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="TytulySelectSimple">
+      <Parameter Name="tytul" Mode="In" Type="String" />
+      <Parameter Name="obejrzane" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="hsp_tytulySelectSimpleAll" ReturnType="Collection(FilmyModel.hsp_tytulySelectSimpleAll_Result)" />
+    <FunctionImport Name="GetFilmyAll" ReturnType="Collection(FilmyModel.FilmEF)" />
+    <FunctionImport Name="hsp_turniejeSelectByIdFilmu" ReturnType="Collection(FilmyModel.hsp_turniejeSelectByIdFilmu_Result)">
+      <Parameter Name="id_filmu" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetSkresleniaByIdFilmu" ReturnType="Collection(FilmyModel.SkresleniaEF)">
+      <Parameter Name="id_filmu" Mode="In" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="hsp_tytulySelect_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="tytul" Nullable="false" MaxLength="500" />
+    <Property Type="String" Name="tytul_org" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="rezyseria" Nullable="true" MaxLength="500" />
+    <Property Type="Int32" Name="rok" Nullable="true" />
+    <Property Type="String" Name="kategoria" Nullable="true" MaxLength="500" />
+    <Property Type="Int32" Name="dlugosc" Nullable="true" />
+    <Property Type="String" Name="link" Nullable="true" MaxLength="500" />
+    <Property Type="DateTime" Name="data_dodania" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="obejrzany" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="ocena" Nullable="true" />
+    <Property Type="String" Name="obsada" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="opis" Nullable="true" MaxLength="1500" />
+    <Property Type="String" Name="kraj" Nullable="true" MaxLength="50" />
+    <Property Type="Binary" Name="poster" Nullable="true" MaxLength="Max" />
+    <Property Type="Decimal" Name="imdb" Nullable="true" Precision="5" Scale="2" />
+    <Property Type="String" Name="zrodlo" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="hsp_tytulySelectAll_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="tytul" Nullable="false" MaxLength="500" />
+    <Property Type="String" Name="tytul_org" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="rezyseria" Nullable="true" MaxLength="500" />
+    <Property Type="Int32" Name="rok" Nullable="true" />
+    <Property Type="String" Name="kategoria" Nullable="true" MaxLength="500" />
+    <Property Type="Int32" Name="dlugosc" Nullable="true" />
+    <Property Type="String" Name="link" Nullable="true" MaxLength="500" />
+    <Property Type="DateTime" Name="data_dodania" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="obejrzany" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="ocena" Nullable="true" />
+    <Property Type="String" Name="obsada" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="opis" Nullable="true" MaxLength="1500" />
+    <Property Type="String" Name="kraj" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="imdb" Nullable="true" Precision="5" Scale="2" />
+    <Property Type="Int32" Name="udzial" Nullable="true" />
+    <Property Type="Int32" Name="srednia" Nullable="false" />
+    <Property Type="Int32" Name="max" Nullable="false" />
+    <Property Type="String" Name="zrodlo" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="hsp_tytulySelectById_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="tytul" Nullable="false" MaxLength="500" />
+    <Property Type="String" Name="tytul_org" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="rezyseria" Nullable="true" MaxLength="500" />
+    <Property Type="Int32" Name="rok" Nullable="true" />
+    <Property Type="String" Name="kategoria" Nullable="true" MaxLength="500" />
+    <Property Type="Int32" Name="dlugosc" Nullable="true" />
+    <Property Type="String" Name="link" Nullable="true" MaxLength="500" />
+    <Property Type="DateTime" Name="data_dodania" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="obejrzany" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="ocena" Nullable="true" />
+    <Property Type="Int32" Name="ilosc" Nullable="true" />
+    <Property Type="String" Name="zrodlo" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="hsp_tytulySelectSimple_Result">
+    <Property Type="Int64" Name="lokata" Nullable="true" />
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="srednia" Nullable="false" />
+    <Property Type="String" Name="tytul" Nullable="false" MaxLength="500" />
+    <Property Type="String" Name="tytul_org" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="rezyseria" Nullable="true" MaxLength="500" />
+    <Property Type="Int32" Name="udzial" Nullable="true" />
+    <Property Type="Int32" Name="max" Nullable="false" />
+    <Property Type="Decimal" Name="imdb" Nullable="true" Precision="5" Scale="2" />
+    <Property Type="String" Name="kategoria" Nullable="true" MaxLength="500" />
+    <Property Type="Int32" Name="dlugosc" Nullable="true" />
+    <Property Type="String" Name="obsada" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="zrodlo" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="hit" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="hsp_tytulySelectSimpleAll_Result">
+    <Property Type="Int64" Name="lokata" Nullable="true" />
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="srednia" Nullable="false" />
+    <Property Type="String" Name="tytul" Nullable="false" MaxLength="500" />
+    <Property Type="String" Name="tytul_org" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="rezyseria" Nullable="true" MaxLength="500" />
+    <Property Type="Int32" Name="udzial" Nullable="true" />
+    <Property Type="Int32" Name="max" Nullable="false" />
+    <Property Type="Decimal" Name="imdb" Nullable="true" Precision="5" Scale="2" />
+    <Property Type="String" Name="kategoria" Nullable="true" MaxLength="500" />
+    <Property Type="Int32" Name="dlugosc" Nullable="true" />
+    <Property Type="String" Name="obsada" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="zrodlo" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="hit" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="FilmEF">
+    <Property Type="Int64" Name="lokata" Nullable="true" />
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="srednia" Nullable="false" />
+    <Property Type="String" Name="tytul" Nullable="false" MaxLength="500" />
+    <Property Type="String" Name="tytul_org" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="rezyseria" Nullable="true" MaxLength="500" />
+    <Property Type="Int32" Name="udzial" Nullable="true" />
+    <Property Type="Int32" Name="max" Nullable="false" />
+    <Property Type="Decimal" Name="imdb" Nullable="true" Precision="5" Scale="2" />
+    <Property Type="String" Name="kategoria" Nullable="true" MaxLength="500" />
+    <Property Type="Int32" Name="dlugosc" Nullable="true" />
+    <Property Type="String" Name="obsada" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="zrodlo" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="hit" Nullable="true" />
+    <Property Type="DateTime" Name="obejrzany" Nullable="true" Precision="23" />
+    <Property Type="String" Name="poster_link" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="opis" Nullable="true" MaxLength="1500" />
+    <Property Type="String" Name="link" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="kraj" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="rok" Nullable="true" />
+    <Property Type="Boolean" Name="nieaktywny" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="hsp_turniejeSelectByIdFilmu_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="nick" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="ilosc" Nullable="true" />
+    <Property Type="Int32" Name="lokata" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="SkresleniaEF">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="nick" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="ilosc" Nullable="true" />
+    <Property Type="Int32" Name="lokata" Nullable="true" />
+  </ComplexType>
+</Schema>

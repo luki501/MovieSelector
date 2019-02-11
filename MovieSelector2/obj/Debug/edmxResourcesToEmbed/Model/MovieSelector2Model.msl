@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="FilmyModelStoreContainer" CdmEntityContainer="FilmyEntities">
+    <EntitySetMapping Name="turnieje">
+      <EntityTypeMapping TypeName="FilmyModel.turnieje">
+        <MappingFragment StoreEntitySet="turnieje">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="id_turnieju" ColumnName="id_turnieju" />
+          <ScalarProperty Name="id_filmu" ColumnName="id_filmu" />
+          <ScalarProperty Name="nick" ColumnName="nick" />
+          <ScalarProperty Name="lokata" ColumnName="lokata" />
+          <ScalarProperty Name="data_wstawienia" ColumnName="data_wstawienia" />
+          <ScalarProperty Name="losowo" ColumnName="losowo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tytuly">
+      <EntityTypeMapping TypeName="FilmyModel.tytuly">
+        <MappingFragment StoreEntitySet="tytuly">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="tytul" ColumnName="tytul" />
+          <ScalarProperty Name="tytul_org" ColumnName="tytul_org" />
+          <ScalarProperty Name="rezyseria" ColumnName="rezyseria" />
+          <ScalarProperty Name="rok" ColumnName="rok" />
+          <ScalarProperty Name="kategoria" ColumnName="kategoria" />
+          <ScalarProperty Name="dlugosc" ColumnName="dlugosc" />
+          <ScalarProperty Name="link" ColumnName="link" />
+          <ScalarProperty Name="data_dodania" ColumnName="data_dodania" />
+          <ScalarProperty Name="obejrzany" ColumnName="obejrzany" />
+          <ScalarProperty Name="ocena" ColumnName="ocena" />
+          <ScalarProperty Name="obsada" ColumnName="obsada" />
+          <ScalarProperty Name="opis" ColumnName="opis" />
+          <ScalarProperty Name="kraj" ColumnName="kraj" />
+          <ScalarProperty Name="poster" ColumnName="poster" />
+          <ScalarProperty Name="imdb" ColumnName="imdb" />
+          <ScalarProperty Name="zrodlo" ColumnName="zrodlo" />
+          <ScalarProperty Name="hit" ColumnName="hit" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="hsp_turniejeInsert" FunctionName="FilmyModel.Store.hsp_turniejeInsert" />
+    <FunctionImportMapping FunctionImportName="hsp_turniejInsertByTytul" FunctionName="FilmyModel.Store.hsp_turniejInsertByTytul" />
+    <FunctionImportMapping FunctionImportName="hsp_tytulyInsert" FunctionName="FilmyModel.Store.hsp_tytulyInsert" />
+    <FunctionImportMapping FunctionImportName="hsp_tytulySelect" FunctionName="FilmyModel.Store.hsp_tytulySelect">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FilmyModel.hsp_tytulySelect_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="tytul" ColumnName="tytul" />
+          <ScalarProperty Name="tytul_org" ColumnName="tytul_org" />
+          <ScalarProperty Name="rezyseria" ColumnName="rezyseria" />
+          <ScalarProperty Name="rok" ColumnName="rok" />
+          <ScalarProperty Name="kategoria" ColumnName="kategoria" />
+          <ScalarProperty Name="dlugosc" ColumnName="dlugosc" />
+          <ScalarProperty Name="link" ColumnName="link" />
+          <ScalarProperty Name="data_dodania" ColumnName="data_dodania" />
+          <ScalarProperty Name="obejrzany" ColumnName="obejrzany" />
+          <ScalarProperty Name="ocena" ColumnName="ocena" />
+          <ScalarProperty Name="obsada" ColumnName="obsada" />
+          <ScalarProperty Name="opis" ColumnName="opis" />
+          <ScalarProperty Name="kraj" ColumnName="kraj" />
+          <ScalarProperty Name="poster" ColumnName="poster" />
+          <ScalarProperty Name="imdb" ColumnName="imdb" />
+          <ScalarProperty Name="zrodlo" ColumnName="zrodlo" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="hsp_tytulySelectAll" FunctionName="FilmyModel.Store.hsp_tytulySelectAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FilmyModel.hsp_tytulySelectAll_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="tytul" ColumnName="tytul" />
+          <ScalarProperty Name="tytul_org" ColumnName="tytul_org" />
+          <ScalarProperty Name="rezyseria" ColumnName="rezyseria" />
+          <ScalarProperty Name="rok" ColumnName="rok" />
+          <ScalarProperty Name="kategoria" ColumnName="kategoria" />
+          <ScalarProperty Name="dlugosc" ColumnName="dlugosc" />
+          <ScalarProperty Name="link" ColumnName="link" />
+          <ScalarProperty Name="data_dodania" ColumnName="data_dodania" />
+          <ScalarProperty Name="obejrzany" ColumnName="obejrzany" />
+          <ScalarProperty Name="ocena" ColumnName="ocena" />
+          <ScalarProperty Name="obsada" ColumnName="obsada" />
+          <ScalarProperty Name="opis" ColumnName="opis" />
+          <ScalarProperty Name="kraj" ColumnName="kraj" />
+          <ScalarProperty Name="imdb" ColumnName="imdb" />
+          <ScalarProperty Name="udzial" ColumnName="udzial" />
+          <ScalarProperty Name="srednia" ColumnName="srednia" />
+          <ScalarProperty Name="max" ColumnName="max" />
+          <ScalarProperty Name="zrodlo" ColumnName="zrodlo" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="hsp_tytulySelectById" FunctionName="FilmyModel.Store.hsp_tytulySelectById">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FilmyModel.hsp_tytulySelectById_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="tytul" ColumnName="tytul" />
+          <ScalarProperty Name="tytul_org" ColumnName="tytul_org" />
+          <ScalarProperty Name="rezyseria" ColumnName="rezyseria" />
+          <ScalarProperty Name="rok" ColumnName="rok" />
+          <ScalarProperty Name="kategoria" ColumnName="kategoria" />
+          <ScalarProperty Name="dlugosc" ColumnName="dlugosc" />
+          <ScalarProperty Name="link" ColumnName="link" />
+          <ScalarProperty Name="data_dodania" ColumnName="data_dodania" />
+          <ScalarProperty Name="obejrzany" ColumnName="obejrzany" />
+          <ScalarProperty Name="ocena" ColumnName="ocena" />
+          <ScalarProperty Name="ilosc" ColumnName="ilosc" />
+          <ScalarProperty Name="zrodlo" ColumnName="zrodlo" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="hsp_tytulySelectSimple" FunctionName="FilmyModel.Store.hsp_tytulySelectSimple">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FilmyModel.hsp_tytulySelectSimple_Result">
+          <ScalarProperty Name="lokata" ColumnName="lokata" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="srednia" ColumnName="srednia" />
+          <ScalarProperty Name="tytul" ColumnName="tytul" />
+          <ScalarProperty Name="tytul_org" ColumnName="tytul_org" />
+          <ScalarProperty Name="rezyseria" ColumnName="rezyseria" />
+          <ScalarProperty Name="udzial" ColumnName="udzial" />
+          <ScalarProperty Name="max" ColumnName="max" />
+          <ScalarProperty Name="imdb" ColumnName="imdb" />
+          <ScalarProperty Name="kategoria" ColumnName="kategoria" />
+          <ScalarProperty Name="dlugosc" ColumnName="dlugosc" />
+          <ScalarProperty Name="obsada" ColumnName="obsada" />
+          <ScalarProperty Name="lokata2" ColumnName="lokata2" />
+          <ScalarProperty Name="zrodlo" ColumnName="zrodlo" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="hsp_tytulyUpdate" FunctionName="FilmyModel.Store.hsp_tytulyUpdate" />
+  </EntityContainerMapping>
+</Mapping>

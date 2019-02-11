@@ -1,0 +1,87 @@
+﻿<Page x:Class="MovieSelector2.View.EdycjaFilmuPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MovieSelector2.View"
+      xmlns:ctrl="clr-namespace:MovieSelector2.View.ControlProperties"
+      xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+      xmlns:ie="http://schemas.microsoft.com/expression/2010/interactions"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="300"
+      Title="NowyFilmPage">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.ColumnSpan="2" Orientation="Horizontal">
+            <Button Style="{StaticResource ImageButton}" Content="Zapisz" ctrl:ButtonProperties.Image="{StaticResource imgDisk}" Command="{Binding ZapiszFilmCommand}" >
+                <i:Interaction.Behaviors>
+                    <local:ClosePage />
+                </i:Interaction.Behaviors>
+            </Button>
+            <Button Style="{StaticResource ImageButton}" Content="Pobierz dane z MovieDb" ctrl:ButtonProperties.Image="{StaticResource imgDatabaseAdd}" >
+                <i:Interaction.Behaviors>
+                    <local:PobierzDaneFilmu />
+                </i:Interaction.Behaviors>
+            </Button>
+            <Button Style="{StaticResource ImageButton}" Content="Anuluj" ctrl:ButtonProperties.Image="{StaticResource imgDoorOut}" >
+                <i:Interaction.Behaviors>
+                    <local:ClosePage />
+                </i:Interaction.Behaviors>
+            </Button>
+        </StackPanel>
+        <TextBlock Grid.Row="1" Text="Tytuł" Style="{StaticResource txtStyle}"/>
+        <TextBlock Grid.Row="2" Text="Tytuł oryginalny" Style="{StaticResource txtStyle}" />
+        <TextBlock Grid.Row="3" Text="Reżyseria" Style="{StaticResource txtStyle}" />
+        <TextBlock Grid.Row="4" Text="Długość" Style="{StaticResource txtStyle}" />
+        <TextBlock Grid.Row="5" Text="Kraj" Style="{StaticResource txtStyle}" />
+        <TextBlock Grid.Row="6" Text="Rok" Style="{StaticResource txtStyle}" />
+        <TextBlock Grid.Row="7" Text="Kategoria" Style="{StaticResource txtStyle}" />
+        <TextBlock Grid.Row="8" Text="Obsada" Style="{StaticResource txtStyle}" />
+        <TextBlock Grid.Row="9" Text="Opis" Style="{StaticResource txtStyle}" />
+        <TextBlock Grid.Row="10" Text="Ocena IMDb" Style="{StaticResource txtStyle}" />
+        <TextBlock Grid.Row="11" Text="Link" Style="{StaticResource txtStyle}" />
+        <TextBlock Grid.Row="12" Text="Poster link" Style="{StaticResource txtStyle}" />
+        <TextBlock Grid.Row="13" Text="Źródło" Style="{StaticResource txtStyle}" />
+        <TextBlock Grid.Row="15" Text="Poster" Style="{StaticResource txtStyle}" />
+        <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding FilmEdytowany.Tytul, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource tbStyle}"/>
+        <TextBox Grid.Column="1" Grid.Row="2" Text="{Binding FilmEdytowany.TytulOrg, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource tbStyle}"/>
+        <TextBox Grid.Column="1" Grid.Row="3" Text="{Binding FilmEdytowany.Rezyseria, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource tbStyle}"/>
+        <TextBox Grid.Column="1" Grid.Row="4" Text="{Binding FilmEdytowany.Dlugosc, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource tbStyle}"/>
+        <TextBox Grid.Column="1" Grid.Row="5" Text="{Binding FilmEdytowany.Kraj, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource tbStyle}"/>
+        <TextBox Grid.Column="1" Grid.Row="6" Text="{Binding FilmEdytowany.Rok, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource tbStyle}"/>
+        <TextBox Grid.Column="1" Grid.Row="7" Text="{Binding FilmEdytowany.Kategoria, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource tbStyle}"/>
+        <TextBox Grid.Column="1" Grid.Row="8" Text="{Binding FilmEdytowany.Obsada, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource tbStyle}"/>
+        <TextBox Grid.Column="1" Grid.Row="9" Text="{Binding FilmEdytowany.Opis, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource tbStyle}"/>
+        <TextBox Grid.Column="1" Grid.Row="10" Text="{Binding FilmEdytowany.ImdbRating, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource tbStyle}"/>
+        <TextBox Grid.Column="1" Grid.Row="11" Text="{Binding FilmEdytowany.Link, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource tbStyle}"/>
+        <TextBox x:Name="tbLinkPoster" Grid.Column="1" Grid.Row="12" Text="{Binding FilmEdytowany.PosterLink, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource tbStyle}"/>
+        <TextBox Grid.Column="1" Grid.Row="13" Text="{Binding FilmEdytowany.Zrodlo, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource tbStyle}"/>
+        <CheckBox Grid.Column="1" Grid.Row="14" Content="Hit" IsChecked="{Binding FilmEdytowany.Hit, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource cbStyle}"/>
+        <CheckBox Grid.Column="1" Grid.Row="15" Content="Nieaktywny" IsChecked="{Binding FilmEdytowany.Nieaktywny, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource cbStyle}"/>
+        <Image Grid.Column="1" Grid.Row="16" Source="{Binding ElementName=tbLinkPoster, Path=Text}" Width="100" Height="150"/>
+
+    </Grid>
+</Page>

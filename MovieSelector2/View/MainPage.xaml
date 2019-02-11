@@ -1,0 +1,99 @@
+﻿<Page x:Class="MovieSelector2.View.MainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MovieSelector2.View"
+      xmlns:ctrl="clr-namespace:MovieSelector2.View.ControlProperties"
+      xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+      xmlns:ie="http://schemas.microsoft.com/expression/2010/interactions"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="600"
+      Title="MainPage" x:Name="MainWindow">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <DockPanel Grid.Row="0" Grid.ColumnSpan="2" >
+            <Button x:Name="btnNowyFilm" Style="{StaticResource ImageButton}" Content="Nowy film" ctrl:ButtonProperties.Image="{StaticResource imgAdd}" Command="{Binding NowyFilmCommand}">
+                <i:Interaction.Behaviors>
+                    <local:NowyFilm />
+                </i:Interaction.Behaviors>
+            </Button>
+            <Button x:Name="btnEdytujFilm" Style="{StaticResource ImageButton}" Content="Edytuj" ctrl:ButtonProperties.Image="{StaticResource imgEdit}">
+                <i:Interaction.Behaviors>
+                    <local:EdytujFilm />
+                </i:Interaction.Behaviors>
+            </Button>
+            <Button x:Name="btnUsunFilm" Style="{StaticResource ImageButton}" Content="Usun" ctrl:ButtonProperties.Image="{StaticResource imgCancel}" Command="{Binding UsunFilmCommand}">
+            </Button>
+            <CheckBox Content="Tylko do obejrzenia" IsChecked="{Binding IsTylkoZaznaczone, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Margin="5"/>
+            <Button x:Name="btnUstawObejrzanyFilm" Style="{StaticResource ImageButton}" Content="Obejrzany" ctrl:ButtonProperties.Image="{StaticResource imgAccept}" Command="{Binding UstawJakoObejrzanyCommand}" HorizontalAlignment="Right">
+            </Button>
+        </DockPanel>
+        <StackPanel Grid.Row="1" Grid.Column="1">
+            <TextBlock Text="Filtry"></TextBlock>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <TextBlock Text="Tytuł" Style="{StaticResource txtStyle}" />
+                <TextBox Grid.Column="1" Text="{Binding SzukanaFrazaTytul, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource tbStyle}" />
+                <TextBlock Grid.Row="1" Text="Osoba" Style="{StaticResource txtStyle}" />
+                <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding SzukanaFrazaOsoba, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource tbStyle}" />
+                <TextBlock Grid.Row="2" Text="Gatunek" Style="{StaticResource txtStyle}" />
+                <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding SzukanaFrazaGatunek, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource tbStyle}" />
+                <TextBlock Grid.Row="3" Text=" Min. lokata" Style="{StaticResource txtStyle}"/>
+                <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding SzukanaMinLokata}" Style="{StaticResource tbStyle}"/>
+            </Grid>
+            <Border Margin="5" BorderThickness="1" BorderBrush="Gray" />
+            <RadioButton GroupName="Gracze" IsChecked="True" Content="Wszyscy" Command="{Binding FilmyDlaGraczaCommand}" CommandParameter=""/>
+            <ItemsControl ItemsSource="{Binding ListaGraczy, UpdateSourceTrigger=PropertyChanged}" >
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <RadioButton GroupName="Gracze" Content="{Binding }"
+                                     Command="{Binding ElementName=MainWindow, Path=DataContext.FilmyDlaGraczaCommand}" CommandParameter="{Binding }"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+            <Border Margin="5" BorderThickness="1" BorderBrush="Gray" />
+            <DockPanel >
+                <TextBox x:Name="tbNowyGracz" Width="100" Margin="3"/>
+                <Button Content="Dodaj" Command="{Binding DodajGraczaCommand}" CommandParameter="{Binding ElementName=tbNowyGracz, Path=Text}" Margin="3"/>
+            </DockPanel>
+            <DataGrid Style="{StaticResource dataGridStyle}" ItemsSource="{Binding ListaGraczy, UpdateSourceTrigger=PropertyChanged}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding Path=.}" Header="Gracze" Width="*"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <Border Margin="5" BorderThickness="1" BorderBrush="Gray" />
+            <ComboBox x:Name="cbRodzajeTurniejow" ItemsSource="{Binding RodzajeTurniejow}" Margin="3,0" SelectedIndex="{Binding IdRodzajuTurnieju}"/>
+            <DockPanel >
+                <TextBlock Text="Pula filmów: " Style="{StaticResource txtStyle}"/>
+                <TextBox Text="{Binding PulaFilmow}" Style="{StaticResource tbStyle}" HorizontalAlignment="Right" Width="50"/>
+            </DockPanel>
+            <DockPanel>
+                <TextBlock Text="W turnieju: " Style="{StaticResource txtStyle}"/>
+                <TextBox Text="{Binding IloscFilmow}" Style="{StaticResource tbStyle}" Width="50" HorizontalAlignment="Right"/>
+            </DockPanel>
+            <Button x:Name="btnStartTurniej" Style="{StaticResource ImageButton}" Content="START" ctrl:ButtonProperties.Image="{StaticResource imgAccept}" >
+                <i:Interaction.Behaviors>
+                    <local:StartTurnieju/>
+                </i:Interaction.Behaviors>
+            </Button>
+        </StackPanel>
+        <Frame x:Name="mainFrame" Grid.Row="1" Grid.Column="0" NavigationUIVisibility="Hidden"/>
+    </Grid>
+</Page>

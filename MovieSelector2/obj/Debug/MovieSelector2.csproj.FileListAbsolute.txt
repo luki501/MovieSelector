@@ -1,0 +1,162 @@
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\WpfStart\bin\Debug\GalaSoft.MvvmLight.dll
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\WpfStart\bin\Debug\GalaSoft.MvvmLight.Extras.dll
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\WpfStart\bin\Debug\Microsoft.Expression.Interactions.dll
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\WpfStart\bin\Debug\Microsoft.Practices.ServiceLocation.dll
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\WpfStart\bin\Debug\System.Windows.Interactivity.dll
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\WpfStart\bin\Debug\GalaSoft.MvvmLight.pdb
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\WpfStart\bin\Debug\GalaSoft.MvvmLight.xml
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\WpfStart\bin\Debug\GalaSoft.MvvmLight.Extras.pdb
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\WpfStart\bin\Debug\GalaSoft.MvvmLight.Extras.xml
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\WpfStart\bin\Debug\Microsoft.Expression.Interactions.xml
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\WpfStart\bin\Debug\Microsoft.Practices.ServiceLocation.pdb
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\WpfStart\bin\Debug\Microsoft.Practices.ServiceLocation.xml
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\WpfStart\bin\Debug\System.Windows.Interactivity.xml
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\WpfStart\bin\Debug\de\Microsoft.Expression.Interactions.resources.dll
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\WpfStart\bin\Debug\en\Microsoft.Expression.Interactions.resources.dll
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\WpfStart\bin\Debug\es\Microsoft.Expression.Interactions.resources.dll
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\WpfStart\bin\Debug\fr\Microsoft.Expression.Interactions.resources.dll
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\WpfStart\bin\Debug\it\Microsoft.Expression.Interactions.resources.dll
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\WpfStart\bin\Debug\ja\Microsoft.Expression.Interactions.resources.dll
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\WpfStart\bin\Debug\ko\Microsoft.Expression.Interactions.resources.dll
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\WpfStart\bin\Debug\zh-Hans\Microsoft.Expression.Interactions.resources.dll
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\WpfStart\bin\Debug\zh-Hant\Microsoft.Expression.Interactions.resources.dll
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\WpfStart\obj\Debug\MovieSelector2.csprojResolveAssemblyReference.cache
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\WpfStart\obj\Debug\View\MainWindow.g.cs
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\WpfStart\obj\Debug\View\WindowAbout.g.cs
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\WpfStart\obj\Debug\View\WindowDialog.g.cs
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\WpfStart\obj\Debug\App.g.cs
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\WpfStart\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\WpfStart\obj\Debug\View\MainWindow.baml
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\WpfStart\obj\Debug\View\WindowAbout.baml
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\WpfStart\obj\Debug\View\WindowDialog.baml
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\WpfStart\obj\Debug\MovieSelector2.csproj.GenerateResource.Cache
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\WpfStart\bin\Debug\MovieSelector2.exe
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\WpfStart\bin\Debug\MovieSelector2.pdb
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\WpfStart\obj\Debug\MovieSelector2_MarkupCompile.cache
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\WpfStart\obj\Debug\MovieSelector2_MarkupCompile.lref
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\WpfStart\obj\Debug\MovieSelector2.g.resources
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\WpfStart\obj\Debug\MovieSelector2.Properties.Resources.resources
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\WpfStart\obj\Debug\MovieSelector2.exe
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\WpfStart\obj\Debug\MovieSelector2.pdb
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\WpfStart\obj\Debug\App.baml
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\MovieSelector2\obj\Debug\MovieSelector2.exe
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\MovieSelector2\obj\Debug\MovieSelector2.pdb
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\MovieSelector2\bin\Debug\MovieSelector2.exe
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\MovieSelector2\bin\Debug\MovieSelector2.pdb
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\MovieSelector2\bin\Debug\GalaSoft.MvvmLight.dll
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\MovieSelector2\bin\Debug\GalaSoft.MvvmLight.Extras.dll
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\MovieSelector2\bin\Debug\Microsoft.Expression.Interactions.dll
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\MovieSelector2\bin\Debug\Microsoft.Practices.ServiceLocation.dll
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\MovieSelector2\bin\Debug\System.Windows.Interactivity.dll
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\MovieSelector2\bin\Debug\GalaSoft.MvvmLight.pdb
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\MovieSelector2\bin\Debug\GalaSoft.MvvmLight.xml
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\MovieSelector2\bin\Debug\GalaSoft.MvvmLight.Extras.pdb
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\MovieSelector2\bin\Debug\GalaSoft.MvvmLight.Extras.xml
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\MovieSelector2\bin\Debug\Microsoft.Expression.Interactions.xml
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\MovieSelector2\bin\Debug\Microsoft.Practices.ServiceLocation.pdb
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\MovieSelector2\bin\Debug\Microsoft.Practices.ServiceLocation.xml
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\MovieSelector2\bin\Debug\System.Windows.Interactivity.xml
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\MovieSelector2\bin\Debug\de\Microsoft.Expression.Interactions.resources.dll
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\MovieSelector2\bin\Debug\en\Microsoft.Expression.Interactions.resources.dll
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\MovieSelector2\bin\Debug\es\Microsoft.Expression.Interactions.resources.dll
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\MovieSelector2\bin\Debug\fr\Microsoft.Expression.Interactions.resources.dll
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\MovieSelector2\bin\Debug\it\Microsoft.Expression.Interactions.resources.dll
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\MovieSelector2\bin\Debug\ja\Microsoft.Expression.Interactions.resources.dll
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\MovieSelector2\bin\Debug\ko\Microsoft.Expression.Interactions.resources.dll
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\MovieSelector2\bin\Debug\zh-Hans\Microsoft.Expression.Interactions.resources.dll
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\MovieSelector2\bin\Debug\zh-Hant\Microsoft.Expression.Interactions.resources.dll
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\MovieSelector2\obj\Debug\View\MainWindow.g.cs
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\MovieSelector2\obj\Debug\View\WindowAbout.g.cs
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\MovieSelector2\obj\Debug\View\WindowDialog.g.cs
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\MovieSelector2\obj\Debug\App.g.cs
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\MovieSelector2\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\MovieSelector2\obj\Debug\MovieSelector2_MarkupCompile.cache
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\MovieSelector2\obj\Debug\MovieSelector2_MarkupCompile.lref
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\MovieSelector2\obj\Debug\App.baml
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\MovieSelector2\obj\Debug\View\MainWindow.baml
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\MovieSelector2\obj\Debug\View\WindowAbout.baml
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\MovieSelector2\obj\Debug\View\WindowDialog.baml
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\MovieSelector2\obj\Debug\MovieSelector2.g.resources
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\MovieSelector2\obj\Debug\MovieSelector2.Properties.Resources.resources
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\MovieSelector2\obj\Debug\MovieSelector2.csproj.GenerateResource.Cache
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\MovieSelector2\obj\Debug\View\MainPage.g.cs
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\MovieSelector2\obj\Debug\View\MainPage.baml
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\MovieSelector2\bin\Debug\MovieSelector2.exe.config
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\MovieSelector2\bin\Debug\EntityFramework.dll
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\MovieSelector2\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\MovieSelector2\bin\Debug\EntityFramework.xml
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\MovieSelector2\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\MovieSelector2\obj\Debug\View\ListaFilmowPage.g.cs
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\MovieSelector2\obj\Debug\MovieSelector2_Content.g.cs
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\MovieSelector2\obj\Debug\View\ListaFilmowPage.baml
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\MovieSelector2\obj\Debug\View\FilmToolTipUC.g.cs
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\MovieSelector2\obj\Debug\View\FilmToolTipUC.baml
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\MovieSelector2\obj\Debug\View\EdycjaFilmuPage.g.cs
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\MovieSelector2\obj\Debug\View\EdycjaFilmuPage.baml
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\MovieSelector2\bin\Debug\Newtonsoft.Json.dll
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\MovieSelector2\bin\Debug\Newtonsoft.Json.xml
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\MovieSelector2\obj\Debug\View\WindowMovieDB.g.cs
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\MovieSelector2\obj\Debug\View\WindowMovieDB.baml
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\MovieSelector2\obj\Debug\View\SkresleniaDataGridUC.g.cs
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\MovieSelector2\obj\Debug\View\SkresleniaDataGridUC.baml
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\MovieSelector2\obj\Debug\View\FilmKartaUC.g.cs
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\MovieSelector2\obj\Debug\View\TurniejWindow.g.cs
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\MovieSelector2\obj\Debug\View\FilmKartaUC.baml
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\MovieSelector2\obj\Debug\View\TurniejWindow.baml
+C:\Users\LUKI\Documents\Visual Studio 2015\Projects\MovieSelector2\MovieSelector2\obj\Debug\MovieSelector2.csprojResolveAssemblyReference.cache
+C:\Users\lukas\source\repos\MovieSelector2\MovieSelector2\bin\Debug\MovieSelector2.exe.config
+C:\Users\lukas\source\repos\MovieSelector2\MovieSelector2\bin\Debug\MovieSelector2.exe
+C:\Users\lukas\source\repos\MovieSelector2\MovieSelector2\bin\Debug\MovieSelector2.pdb
+C:\Users\lukas\source\repos\MovieSelector2\MovieSelector2\bin\Debug\EntityFramework.dll
+C:\Users\lukas\source\repos\MovieSelector2\MovieSelector2\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\lukas\source\repos\MovieSelector2\MovieSelector2\bin\Debug\GalaSoft.MvvmLight.dll
+C:\Users\lukas\source\repos\MovieSelector2\MovieSelector2\bin\Debug\GalaSoft.MvvmLight.Extras.dll
+C:\Users\lukas\source\repos\MovieSelector2\MovieSelector2\bin\Debug\Microsoft.Practices.ServiceLocation.dll
+C:\Users\lukas\source\repos\MovieSelector2\MovieSelector2\bin\Debug\Newtonsoft.Json.dll
+C:\Users\lukas\source\repos\MovieSelector2\MovieSelector2\bin\Debug\System.Windows.Interactivity.dll
+C:\Users\lukas\source\repos\MovieSelector2\MovieSelector2\bin\Debug\EntityFramework.xml
+C:\Users\lukas\source\repos\MovieSelector2\MovieSelector2\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\lukas\source\repos\MovieSelector2\MovieSelector2\bin\Debug\GalaSoft.MvvmLight.pdb
+C:\Users\lukas\source\repos\MovieSelector2\MovieSelector2\bin\Debug\GalaSoft.MvvmLight.xml
+C:\Users\lukas\source\repos\MovieSelector2\MovieSelector2\bin\Debug\GalaSoft.MvvmLight.Extras.pdb
+C:\Users\lukas\source\repos\MovieSelector2\MovieSelector2\bin\Debug\GalaSoft.MvvmLight.Extras.xml
+C:\Users\lukas\source\repos\MovieSelector2\MovieSelector2\bin\Debug\Microsoft.Practices.ServiceLocation.pdb
+C:\Users\lukas\source\repos\MovieSelector2\MovieSelector2\bin\Debug\Microsoft.Practices.ServiceLocation.xml
+C:\Users\lukas\source\repos\MovieSelector2\MovieSelector2\bin\Debug\Newtonsoft.Json.xml
+C:\Users\lukas\source\repos\MovieSelector2\MovieSelector2\bin\Debug\System.Windows.Interactivity.xml
+C:\Users\lukas\source\repos\MovieSelector2\MovieSelector2\obj\Debug\MovieSelector2.csprojAssemblyReference.cache
+C:\Users\lukas\source\repos\MovieSelector2\MovieSelector2\obj\Debug\View\FilmKartaUC.g.cs
+C:\Users\lukas\source\repos\MovieSelector2\MovieSelector2\obj\Debug\View\FilmToolTipUC.g.cs
+C:\Users\lukas\source\repos\MovieSelector2\MovieSelector2\obj\Debug\View\ListaFilmowPage.g.cs
+C:\Users\lukas\source\repos\MovieSelector2\MovieSelector2\obj\Debug\View\MainPage.g.cs
+C:\Users\lukas\source\repos\MovieSelector2\MovieSelector2\obj\Debug\View\MainWindow.g.cs
+C:\Users\lukas\source\repos\MovieSelector2\MovieSelector2\obj\Debug\View\EdycjaFilmuPage.g.cs
+C:\Users\lukas\source\repos\MovieSelector2\MovieSelector2\obj\Debug\View\SkresleniaDataGridUC.g.cs
+C:\Users\lukas\source\repos\MovieSelector2\MovieSelector2\obj\Debug\View\TurniejWindow.g.cs
+C:\Users\lukas\source\repos\MovieSelector2\MovieSelector2\obj\Debug\View\WindowAbout.g.cs
+C:\Users\lukas\source\repos\MovieSelector2\MovieSelector2\obj\Debug\View\WindowDialog.g.cs
+C:\Users\lukas\source\repos\MovieSelector2\MovieSelector2\obj\Debug\View\WindowMovieDB.g.cs
+C:\Users\lukas\source\repos\MovieSelector2\MovieSelector2\obj\Debug\App.g.cs
+C:\Users\lukas\source\repos\MovieSelector2\MovieSelector2\obj\Debug\MovieSelector2_Content.g.cs
+C:\Users\lukas\source\repos\MovieSelector2\MovieSelector2\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\lukas\source\repos\MovieSelector2\MovieSelector2\obj\Debug\MovieSelector2_MarkupCompile.cache
+C:\Users\lukas\source\repos\MovieSelector2\MovieSelector2\obj\Debug\MovieSelector2_MarkupCompile.lref
+C:\Users\lukas\source\repos\MovieSelector2\MovieSelector2\obj\Debug\App.baml
+C:\Users\lukas\source\repos\MovieSelector2\MovieSelector2\obj\Debug\View\FilmKartaUC.baml
+C:\Users\lukas\source\repos\MovieSelector2\MovieSelector2\obj\Debug\View\FilmToolTipUC.baml
+C:\Users\lukas\source\repos\MovieSelector2\MovieSelector2\obj\Debug\View\ListaFilmowPage.baml
+C:\Users\lukas\source\repos\MovieSelector2\MovieSelector2\obj\Debug\View\MainPage.baml
+C:\Users\lukas\source\repos\MovieSelector2\MovieSelector2\obj\Debug\View\MainWindow.baml
+C:\Users\lukas\source\repos\MovieSelector2\MovieSelector2\obj\Debug\View\EdycjaFilmuPage.baml
+C:\Users\lukas\source\repos\MovieSelector2\MovieSelector2\obj\Debug\View\SkresleniaDataGridUC.baml
+C:\Users\lukas\source\repos\MovieSelector2\MovieSelector2\obj\Debug\View\TurniejWindow.baml
+C:\Users\lukas\source\repos\MovieSelector2\MovieSelector2\obj\Debug\View\WindowAbout.baml
+C:\Users\lukas\source\repos\MovieSelector2\MovieSelector2\obj\Debug\View\WindowDialog.baml
+C:\Users\lukas\source\repos\MovieSelector2\MovieSelector2\obj\Debug\View\WindowMovieDB.baml
+C:\Users\lukas\source\repos\MovieSelector2\MovieSelector2\obj\Debug\MovieSelector2.g.resources
+C:\Users\lukas\source\repos\MovieSelector2\MovieSelector2\obj\Debug\MovieSelector2.Properties.Resources.resources
+C:\Users\lukas\source\repos\MovieSelector2\MovieSelector2\obj\Debug\MovieSelector2.csproj.GenerateResource.cache
+C:\Users\lukas\source\repos\MovieSelector2\MovieSelector2\obj\Debug\MovieSelector2.csproj.CoreCompileInputs.cache
+C:\Users\lukas\source\repos\MovieSelector2\MovieSelector2\obj\Debug\MovieSelector2.csproj.CopyComplete
+C:\Users\lukas\source\repos\MovieSelector2\MovieSelector2\obj\Debug\MovieSelector2.exe
+C:\Users\lukas\source\repos\MovieSelector2\MovieSelector2\obj\Debug\MovieSelector2.pdb

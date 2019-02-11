@@ -1,0 +1,631 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="FilmyModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="turnieje">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_turnieju" Type="int" Nullable="false" />
+          <Property Name="id_filmu" Type="int" Nullable="false" />
+          <Property Name="nick" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="lokata" Type="int" Nullable="false" />
+          <Property Name="data_wstawienia" Type="datetime" Nullable="false" />
+          <Property Name="losowo" Type="bit" />
+        </EntityType>
+        <EntityType Name="tytuly">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tytul" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="tytul_org" Type="nvarchar" MaxLength="500" />
+          <Property Name="rezyseria" Type="nvarchar" MaxLength="500" />
+          <Property Name="rok" Type="int" />
+          <Property Name="kategoria" Type="nvarchar" MaxLength="500" />
+          <Property Name="dlugosc" Type="int" />
+          <Property Name="link" Type="nvarchar" MaxLength="500" />
+          <Property Name="data_dodania" Type="datetime" />
+          <Property Name="obejrzany" Type="datetime" />
+          <Property Name="ocena" Type="int" />
+          <Property Name="obsada" Type="nvarchar" MaxLength="500" />
+          <Property Name="opis" Type="nvarchar" MaxLength="1500" />
+          <Property Name="kraj" Type="nvarchar" MaxLength="100" />
+          <Property Name="imdb" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="zrodlo" Type="nvarchar" MaxLength="50" />
+          <Property Name="hit" Type="bit" />
+          <Property Name="poster_link" Type="nvarchar" MaxLength="500" />
+          <Property Name="nieaktywny" Type="bit" />
+        </EntityType>
+        <Association Name="FK_turnieje_tytuly">
+          <End Role="tytuly" Type="Self.tytuly" Multiplicity="1" />
+          <End Role="turnieje" Type="Self.turnieje" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tytuly">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="turnieje">
+              <PropertyRef Name="id_filmu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tytuly_tytuly">
+          <End Role="tytuly" Type="Self.tytuly" Multiplicity="1" />
+          <End Role="tytuly1" Type="Self.tytuly" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="tytuly">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tytuly1">
+              <PropertyRef Name="id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="hsp_turniejeInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id_turnieju" Type="int" Mode="In" />
+          <Parameter Name="id_filmu" Type="int" Mode="In" />
+          <Parameter Name="nick" Type="nvarchar" Mode="In" />
+          <Parameter Name="lokata" Type="int" Mode="In" />
+          <Parameter Name="data_wstawienia" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="hsp_turniejeSelectByIdFilmu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id_filmu" Type="int" Mode="In" />
+        </Function>
+        <Function Name="hsp_turniejInsertByTytul" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id_turnieju" Type="int" Mode="In" />
+          <Parameter Name="tytul" Type="nvarchar" Mode="In" />
+          <Parameter Name="nick" Type="nvarchar" Mode="In" />
+          <Parameter Name="lokata" Type="int" Mode="In" />
+          <Parameter Name="data_wstawienia" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="hsp_tytulyInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="tytul" Type="nvarchar" Mode="In" />
+          <Parameter Name="tytul_org" Type="nvarchar" Mode="In" />
+          <Parameter Name="rezyseria" Type="nvarchar" Mode="In" />
+          <Parameter Name="rok" Type="int" Mode="In" />
+          <Parameter Name="kategoria" Type="nvarchar" Mode="In" />
+          <Parameter Name="dlugosc" Type="int" Mode="In" />
+          <Parameter Name="link" Type="nvarchar" Mode="In" />
+          <Parameter Name="data_dodania" Type="datetime" Mode="In" />
+          <Parameter Name="obejrzany" Type="datetime" Mode="In" />
+          <Parameter Name="ocena" Type="int" Mode="In" />
+          <Parameter Name="obsada" Type="nvarchar" Mode="In" />
+          <Parameter Name="opis" Type="nvarchar" Mode="In" />
+          <Parameter Name="kraj" Type="nvarchar" Mode="In" />
+          <Parameter Name="poster" Type="image" Mode="In" />
+          <Parameter Name="imdb" Type="decimal" Mode="In" />
+          <Parameter Name="zrodlo" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="hsp_tytulySelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="obejrzane" Type="bit" Mode="In" />
+          <Parameter Name="ile" Type="int" Mode="In" />
+        </Function>
+        <Function Name="hsp_tytulySelectAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="hsp_tytulySelectById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="hsp_tytulySelectSimple" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="tytul" Type="nvarchar" Mode="In" />
+          <Parameter Name="obejrzane" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="hsp_tytulySelectSimpleAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="hsp_tytulyUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="tytul" Type="nvarchar" Mode="In" />
+          <Parameter Name="tytul_org" Type="nvarchar" Mode="In" />
+          <Parameter Name="rezyseria" Type="nvarchar" Mode="In" />
+          <Parameter Name="rok" Type="int" Mode="In" />
+          <Parameter Name="kategoria" Type="nvarchar" Mode="In" />
+          <Parameter Name="dlugosc" Type="int" Mode="In" />
+          <Parameter Name="link" Type="nvarchar" Mode="In" />
+          <Parameter Name="data_dodania" Type="datetime" Mode="In" />
+          <Parameter Name="obejrzany" Type="datetime" Mode="In" />
+          <Parameter Name="ocena" Type="int" Mode="In" />
+          <Parameter Name="obsada" Type="nvarchar" Mode="In" />
+          <Parameter Name="opis" Type="nvarchar" Mode="In" />
+          <Parameter Name="kraj" Type="nvarchar" Mode="In" />
+          <Parameter Name="poster" Type="image" Mode="In" />
+          <Parameter Name="imdb" Type="decimal" Mode="In" />
+          <Parameter Name="zrodlo" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="SredniaLokata" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="decimal">
+          <Parameter Name="id_filmu" Type="int" Mode="In" />
+          <Parameter Name="minimum_liczba_startow" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="FilmyModelStoreContainer">
+          <EntitySet Name="turnieje" EntityType="Self.turnieje" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tytuly" EntityType="Self.tytuly" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_turnieje_tytuly" Association="Self.FK_turnieje_tytuly">
+            <End Role="tytuly" EntitySet="tytuly" />
+            <End Role="turnieje" EntitySet="turnieje" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tytuly_tytuly" Association="Self.FK_tytuly_tytuly">
+            <End Role="tytuly" EntitySet="tytuly" />
+            <End Role="tytuly1" EntitySet="tytuly" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="FilmyModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="turnieje">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_turnieju" Type="Int32" Nullable="false" />
+          <Property Name="id_filmu" Type="Int32" Nullable="false" />
+          <Property Name="nick" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="lokata" Type="Int32" Nullable="false" />
+          <Property Name="data_wstawienia" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="losowo" Type="Boolean" />
+          <NavigationProperty Name="tytuly" Relationship="Self.FK_turnieje_tytuly" FromRole="turnieje" ToRole="tytuly" />
+        </EntityType>
+        <EntityType Name="tytuly">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tytul" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="tytul_org" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="rezyseria" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="rok" Type="Int32" />
+          <Property Name="kategoria" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="dlugosc" Type="Int32" />
+          <Property Name="link" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="data_dodania" Type="DateTime" Precision="3" />
+          <Property Name="obejrzany" Type="DateTime" Precision="3" />
+          <Property Name="ocena" Type="Int32" />
+          <Property Name="obsada" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="opis" Type="String" MaxLength="1500" FixedLength="false" Unicode="true" />
+          <Property Name="kraj" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="imdb" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="zrodlo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="hit" Type="Boolean" />
+          <NavigationProperty Name="turnieje" Relationship="Self.FK_turnieje_tytuly" FromRole="tytuly" ToRole="turnieje" />
+          <NavigationProperty Name="tytuly1" Relationship="Self.FK_tytuly_tytuly" FromRole="tytuly" ToRole="tytuly1" />
+          <NavigationProperty Name="tytuly2" Relationship="Self.FK_tytuly_tytuly" FromRole="tytuly1" ToRole="tytuly" />
+          <Property Name="poster_link" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="nieaktywny" Type="Boolean" />
+        </EntityType>
+        <Association Name="FK_turnieje_tytuly">
+          <End Role="tytuly" Type="Self.tytuly" Multiplicity="1" />
+          <End Role="turnieje" Type="Self.turnieje" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tytuly">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="turnieje">
+              <PropertyRef Name="id_filmu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tytuly_tytuly">
+          <End Role="tytuly" Type="Self.tytuly" Multiplicity="1" />
+          <End Role="tytuly1" Type="Self.tytuly" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="tytuly">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tytuly1">
+              <PropertyRef Name="id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="FilmyEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="turnieje" EntityType="Self.turnieje" />
+          <EntitySet Name="tytuly" EntityType="Self.tytuly" />
+          <AssociationSet Name="FK_turnieje_tytuly" Association="Self.FK_turnieje_tytuly">
+            <End Role="tytuly" EntitySet="tytuly" />
+            <End Role="turnieje" EntitySet="turnieje" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tytuly_tytuly" Association="Self.FK_tytuly_tytuly">
+            <End Role="tytuly" EntitySet="tytuly" />
+            <End Role="tytuly1" EntitySet="tytuly" />
+          </AssociationSet>
+          <FunctionImport Name="hsp_turniejeInsert">
+            <Parameter Name="id_turnieju" Mode="In" Type="Int32" />
+            <Parameter Name="id_filmu" Mode="In" Type="Int32" />
+            <Parameter Name="nick" Mode="In" Type="String" />
+            <Parameter Name="lokata" Mode="In" Type="Int32" />
+            <Parameter Name="data_wstawienia" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="hsp_turniejInsertByTytul">
+            <Parameter Name="id_turnieju" Mode="In" Type="Int32" />
+            <Parameter Name="tytul" Mode="In" Type="String" />
+            <Parameter Name="nick" Mode="In" Type="String" />
+            <Parameter Name="lokata" Mode="In" Type="Int32" />
+            <Parameter Name="data_wstawienia" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="hsp_tytulyInsert">
+            <Parameter Name="tytul" Mode="In" Type="String" />
+            <Parameter Name="tytul_org" Mode="In" Type="String" />
+            <Parameter Name="rezyseria" Mode="In" Type="String" />
+            <Parameter Name="rok" Mode="In" Type="Int32" />
+            <Parameter Name="kategoria" Mode="In" Type="String" />
+            <Parameter Name="dlugosc" Mode="In" Type="Int32" />
+            <Parameter Name="link" Mode="In" Type="String" />
+            <Parameter Name="data_dodania" Mode="In" Type="DateTime" />
+            <Parameter Name="obejrzany" Mode="In" Type="DateTime" />
+            <Parameter Name="ocena" Mode="In" Type="Int32" />
+            <Parameter Name="obsada" Mode="In" Type="String" />
+            <Parameter Name="opis" Mode="In" Type="String" />
+            <Parameter Name="kraj" Mode="In" Type="String" />
+            <Parameter Name="poster" Mode="In" Type="Binary" />
+            <Parameter Name="imdb" Mode="In" Type="Decimal" />
+            <Parameter Name="zrodlo" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="hsp_tytulySelect" ReturnType="Collection(FilmyModel.hsp_tytulySelect_Result)">
+            <Parameter Name="obejrzane" Mode="In" Type="Boolean" />
+            <Parameter Name="ile" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="hsp_tytulySelectAll" ReturnType="Collection(FilmyModel.hsp_tytulySelectAll_Result)" />
+          <FunctionImport Name="hsp_tytulySelectById" ReturnType="Collection(FilmyModel.hsp_tytulySelectById_Result)">
+          <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="hsp_tytulyUpdate">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="tytul" Mode="In" Type="String" />
+            <Parameter Name="tytul_org" Mode="In" Type="String" />
+            <Parameter Name="rezyseria" Mode="In" Type="String" />
+            <Parameter Name="rok" Mode="In" Type="Int32" />
+            <Parameter Name="kategoria" Mode="In" Type="String" />
+            <Parameter Name="dlugosc" Mode="In" Type="Int32" />
+            <Parameter Name="link" Mode="In" Type="String" />
+            <Parameter Name="data_dodania" Mode="In" Type="DateTime" />
+            <Parameter Name="obejrzany" Mode="In" Type="DateTime" />
+            <Parameter Name="ocena" Mode="In" Type="Int32" />
+            <Parameter Name="obsada" Mode="In" Type="String" />
+            <Parameter Name="opis" Mode="In" Type="String" />
+            <Parameter Name="kraj" Mode="In" Type="String" />
+            <Parameter Name="poster" Mode="In" Type="Binary" />
+            <Parameter Name="imdb" Mode="In" Type="Decimal" />
+            <Parameter Name="zrodlo" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="TytulySelectSimple">
+            <Parameter Name="tytul" Mode="In" Type="String" />
+            <Parameter Name="obejrzane" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="hsp_tytulySelectSimpleAll" ReturnType="Collection(FilmyModel.hsp_tytulySelectSimpleAll_Result)" />
+          <FunctionImport Name="GetFilmyAll" ReturnType="Collection(FilmyModel.FilmEF)" />
+          <FunctionImport Name="hsp_turniejeSelectByIdFilmu" ReturnType="Collection(FilmyModel.hsp_turniejeSelectByIdFilmu_Result)">
+          <Parameter Name="id_filmu" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="GetSkresleniaByIdFilmu" ReturnType="Collection(FilmyModel.SkresleniaEF)">
+          <Parameter Name="id_filmu" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="hsp_tytulySelect_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="tytul" Nullable="false" MaxLength="500" />
+          <Property Type="String" Name="tytul_org" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="rezyseria" Nullable="true" MaxLength="500" />
+          <Property Type="Int32" Name="rok" Nullable="true" />
+          <Property Type="String" Name="kategoria" Nullable="true" MaxLength="500" />
+          <Property Type="Int32" Name="dlugosc" Nullable="true" />
+          <Property Type="String" Name="link" Nullable="true" MaxLength="500" />
+          <Property Type="DateTime" Name="data_dodania" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="obejrzany" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="ocena" Nullable="true" />
+          <Property Type="String" Name="obsada" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="opis" Nullable="true" MaxLength="1500" />
+          <Property Type="String" Name="kraj" Nullable="true" MaxLength="50" />
+          <Property Type="Binary" Name="poster" Nullable="true" MaxLength="Max" />
+          <Property Type="Decimal" Name="imdb" Nullable="true" Precision="5" Scale="2" />
+          <Property Type="String" Name="zrodlo" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="hsp_tytulySelectAll_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="tytul" Nullable="false" MaxLength="500" />
+          <Property Type="String" Name="tytul_org" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="rezyseria" Nullable="true" MaxLength="500" />
+          <Property Type="Int32" Name="rok" Nullable="true" />
+          <Property Type="String" Name="kategoria" Nullable="true" MaxLength="500" />
+          <Property Type="Int32" Name="dlugosc" Nullable="true" />
+          <Property Type="String" Name="link" Nullable="true" MaxLength="500" />
+          <Property Type="DateTime" Name="data_dodania" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="obejrzany" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="ocena" Nullable="true" />
+          <Property Type="String" Name="obsada" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="opis" Nullable="true" MaxLength="1500" />
+          <Property Type="String" Name="kraj" Nullable="true" MaxLength="50" />
+          <Property Type="Decimal" Name="imdb" Nullable="true" Precision="5" Scale="2" />
+          <Property Type="Int32" Name="udzial" Nullable="true" />
+          <Property Type="Int32" Name="srednia" Nullable="false" />
+          <Property Type="Int32" Name="max" Nullable="false" />
+          <Property Type="String" Name="zrodlo" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="hsp_tytulySelectById_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="tytul" Nullable="false" MaxLength="500" />
+          <Property Type="String" Name="tytul_org" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="rezyseria" Nullable="true" MaxLength="500" />
+          <Property Type="Int32" Name="rok" Nullable="true" />
+          <Property Type="String" Name="kategoria" Nullable="true" MaxLength="500" />
+          <Property Type="Int32" Name="dlugosc" Nullable="true" />
+          <Property Type="String" Name="link" Nullable="true" MaxLength="500" />
+          <Property Type="DateTime" Name="data_dodania" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="obejrzany" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="ocena" Nullable="true" />
+          <Property Type="Int32" Name="ilosc" Nullable="true" />
+          <Property Type="String" Name="zrodlo" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="hsp_tytulySelectSimple_Result">
+          <Property Type="Int64" Name="lokata" Nullable="true" />
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="Int32" Name="srednia" Nullable="false" />
+          <Property Type="String" Name="tytul" Nullable="false" MaxLength="500" />
+          <Property Type="String" Name="tytul_org" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="rezyseria" Nullable="true" MaxLength="500" />
+          <Property Type="Int32" Name="udzial" Nullable="true" />
+          <Property Type="Int32" Name="max" Nullable="false" />
+          <Property Type="Decimal" Name="imdb" Nullable="true" Precision="5" Scale="2" />
+          <Property Type="String" Name="kategoria" Nullable="true" MaxLength="500" />
+          <Property Type="Int32" Name="dlugosc" Nullable="true" />
+          <Property Type="String" Name="obsada" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="zrodlo" Nullable="true" MaxLength="50" />
+          <Property Type="Boolean" Name="hit" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="hsp_tytulySelectSimpleAll_Result">
+          <Property Type="Int64" Name="lokata" Nullable="true" />
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="Int32" Name="srednia" Nullable="false" />
+          <Property Type="String" Name="tytul" Nullable="false" MaxLength="500" />
+          <Property Type="String" Name="tytul_org" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="rezyseria" Nullable="true" MaxLength="500" />
+          <Property Type="Int32" Name="udzial" Nullable="true" />
+          <Property Type="Int32" Name="max" Nullable="false" />
+          <Property Type="Decimal" Name="imdb" Nullable="true" Precision="5" Scale="2" />
+          <Property Type="String" Name="kategoria" Nullable="true" MaxLength="500" />
+          <Property Type="Int32" Name="dlugosc" Nullable="true" />
+          <Property Type="String" Name="obsada" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="zrodlo" Nullable="true" MaxLength="50" />
+          <Property Type="Boolean" Name="hit" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="FilmEF">
+          <Property Type="Int64" Name="lokata" Nullable="true" />
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="Int32" Name="srednia" Nullable="false" />
+          <Property Type="String" Name="tytul" Nullable="false" MaxLength="500" />
+          <Property Type="String" Name="tytul_org" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="rezyseria" Nullable="true" MaxLength="500" />
+          <Property Type="Int32" Name="udzial" Nullable="true" />
+          <Property Type="Int32" Name="max" Nullable="false" />
+          <Property Type="Decimal" Name="imdb" Nullable="true" Precision="5" Scale="2" />
+          <Property Type="String" Name="kategoria" Nullable="true" MaxLength="500" />
+          <Property Type="Int32" Name="dlugosc" Nullable="true" />
+          <Property Type="String" Name="obsada" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="zrodlo" Nullable="true" MaxLength="50" />
+          <Property Type="Boolean" Name="hit" Nullable="true" />
+          <Property Type="DateTime" Name="obejrzany" Nullable="true" Precision="23" />
+          <Property Type="String" Name="poster_link" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="opis" Nullable="true" MaxLength="1500" />
+          <Property Type="String" Name="link" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="kraj" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="rok" Nullable="true" />
+          <Property Type="Boolean" Name="nieaktywny" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="hsp_turniejeSelectByIdFilmu_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="nick" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="ilosc" Nullable="true" />
+          <Property Type="Int32" Name="lokata" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="SkresleniaEF">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="nick" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="ilosc" Nullable="true" />
+          <Property Type="Int32" Name="lokata" Nullable="true" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="FilmyModelStoreContainer" CdmEntityContainer="FilmyEntities">
+          <EntitySetMapping Name="turnieje">
+            <EntityTypeMapping TypeName="FilmyModel.turnieje">
+              <MappingFragment StoreEntitySet="turnieje">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="id_turnieju" ColumnName="id_turnieju" />
+                <ScalarProperty Name="id_filmu" ColumnName="id_filmu" />
+                <ScalarProperty Name="nick" ColumnName="nick" />
+                <ScalarProperty Name="lokata" ColumnName="lokata" />
+                <ScalarProperty Name="data_wstawienia" ColumnName="data_wstawienia" />
+                <ScalarProperty Name="losowo" ColumnName="losowo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tytuly">
+            <EntityTypeMapping TypeName="FilmyModel.tytuly">
+              <MappingFragment StoreEntitySet="tytuly">
+                <ScalarProperty Name="nieaktywny" ColumnName="nieaktywny" />
+                <ScalarProperty Name="poster_link" ColumnName="poster_link" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="tytul" ColumnName="tytul" />
+                <ScalarProperty Name="tytul_org" ColumnName="tytul_org" />
+                <ScalarProperty Name="rezyseria" ColumnName="rezyseria" />
+                <ScalarProperty Name="rok" ColumnName="rok" />
+                <ScalarProperty Name="kategoria" ColumnName="kategoria" />
+                <ScalarProperty Name="dlugosc" ColumnName="dlugosc" />
+                <ScalarProperty Name="link" ColumnName="link" />
+                <ScalarProperty Name="data_dodania" ColumnName="data_dodania" />
+                <ScalarProperty Name="obejrzany" ColumnName="obejrzany" />
+                <ScalarProperty Name="ocena" ColumnName="ocena" />
+                <ScalarProperty Name="obsada" ColumnName="obsada" />
+                <ScalarProperty Name="opis" ColumnName="opis" />
+                <ScalarProperty Name="kraj" ColumnName="kraj" />
+                <ScalarProperty Name="imdb" ColumnName="imdb" />
+                <ScalarProperty Name="zrodlo" ColumnName="zrodlo" />
+                <ScalarProperty Name="hit" ColumnName="hit" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="hsp_turniejeInsert" FunctionName="FilmyModel.Store.hsp_turniejeInsert" />
+          <FunctionImportMapping FunctionImportName="hsp_turniejInsertByTytul" FunctionName="FilmyModel.Store.hsp_turniejInsertByTytul" />
+          <FunctionImportMapping FunctionImportName="hsp_tytulyInsert" FunctionName="FilmyModel.Store.hsp_tytulyInsert" />
+          <FunctionImportMapping FunctionImportName="hsp_tytulySelect" FunctionName="FilmyModel.Store.hsp_tytulySelect">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="FilmyModel.hsp_tytulySelect_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="tytul" ColumnName="tytul" />
+                <ScalarProperty Name="tytul_org" ColumnName="tytul_org" />
+                <ScalarProperty Name="rezyseria" ColumnName="rezyseria" />
+                <ScalarProperty Name="rok" ColumnName="rok" />
+                <ScalarProperty Name="kategoria" ColumnName="kategoria" />
+                <ScalarProperty Name="dlugosc" ColumnName="dlugosc" />
+                <ScalarProperty Name="link" ColumnName="link" />
+                <ScalarProperty Name="data_dodania" ColumnName="data_dodania" />
+                <ScalarProperty Name="obejrzany" ColumnName="obejrzany" />
+                <ScalarProperty Name="ocena" ColumnName="ocena" />
+                <ScalarProperty Name="obsada" ColumnName="obsada" />
+                <ScalarProperty Name="opis" ColumnName="opis" />
+                <ScalarProperty Name="kraj" ColumnName="kraj" />
+                <ScalarProperty Name="poster" ColumnName="poster" />
+                <ScalarProperty Name="imdb" ColumnName="imdb" />
+                <ScalarProperty Name="zrodlo" ColumnName="zrodlo" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="hsp_tytulySelectAll" FunctionName="FilmyModel.Store.hsp_tytulySelectAll">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="FilmyModel.hsp_tytulySelectAll_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="tytul" ColumnName="tytul" />
+                <ScalarProperty Name="tytul_org" ColumnName="tytul_org" />
+                <ScalarProperty Name="rezyseria" ColumnName="rezyseria" />
+                <ScalarProperty Name="rok" ColumnName="rok" />
+                <ScalarProperty Name="kategoria" ColumnName="kategoria" />
+                <ScalarProperty Name="dlugosc" ColumnName="dlugosc" />
+                <ScalarProperty Name="link" ColumnName="link" />
+                <ScalarProperty Name="data_dodania" ColumnName="data_dodania" />
+                <ScalarProperty Name="obejrzany" ColumnName="obejrzany" />
+                <ScalarProperty Name="ocena" ColumnName="ocena" />
+                <ScalarProperty Name="obsada" ColumnName="obsada" />
+                <ScalarProperty Name="opis" ColumnName="opis" />
+                <ScalarProperty Name="kraj" ColumnName="kraj" />
+                <ScalarProperty Name="imdb" ColumnName="imdb" />
+                <ScalarProperty Name="udzial" ColumnName="udzial" />
+                <ScalarProperty Name="srednia" ColumnName="srednia" />
+                <ScalarProperty Name="max" ColumnName="max" />
+                <ScalarProperty Name="zrodlo" ColumnName="zrodlo" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="hsp_tytulySelectById" FunctionName="FilmyModel.Store.hsp_tytulySelectById">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="FilmyModel.hsp_tytulySelectById_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="tytul" ColumnName="tytul" />
+                <ScalarProperty Name="tytul_org" ColumnName="tytul_org" />
+                <ScalarProperty Name="rezyseria" ColumnName="rezyseria" />
+                <ScalarProperty Name="rok" ColumnName="rok" />
+                <ScalarProperty Name="kategoria" ColumnName="kategoria" />
+                <ScalarProperty Name="dlugosc" ColumnName="dlugosc" />
+                <ScalarProperty Name="link" ColumnName="link" />
+                <ScalarProperty Name="data_dodania" ColumnName="data_dodania" />
+                <ScalarProperty Name="obejrzany" ColumnName="obejrzany" />
+                <ScalarProperty Name="ocena" ColumnName="ocena" />
+                <ScalarProperty Name="ilosc" ColumnName="ilosc" />
+                <ScalarProperty Name="zrodlo" ColumnName="zrodlo" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="hsp_tytulyUpdate" FunctionName="FilmyModel.Store.hsp_tytulyUpdate" />
+          <FunctionImportMapping FunctionImportName="TytulySelectSimple" FunctionName="FilmyModel.Store.hsp_tytulySelectSimple">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="hsp_tytulySelectSimpleAll" FunctionName="FilmyModel.Store.hsp_tytulySelectSimpleAll">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="FilmyModel.hsp_tytulySelectSimpleAll_Result">
+                <ScalarProperty Name="lokata" ColumnName="lokata" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="srednia" ColumnName="srednia" />
+                <ScalarProperty Name="tytul" ColumnName="tytul" />
+                <ScalarProperty Name="tytul_org" ColumnName="tytul_org" />
+                <ScalarProperty Name="rezyseria" ColumnName="rezyseria" />
+                <ScalarProperty Name="udzial" ColumnName="udzial" />
+                <ScalarProperty Name="max" ColumnName="max" />
+                <ScalarProperty Name="imdb" ColumnName="imdb" />
+                <ScalarProperty Name="kategoria" ColumnName="kategoria" />
+                <ScalarProperty Name="dlugosc" ColumnName="dlugosc" />
+                <ScalarProperty Name="obsada" ColumnName="obsada" />
+                <ScalarProperty Name="zrodlo" ColumnName="zrodlo" />
+                <ScalarProperty Name="hit" ColumnName="hit" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetFilmyAll" FunctionName="FilmyModel.Store.hsp_tytulySelectSimpleAll">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="FilmyModel.FilmEF">
+                <ScalarProperty Name="lokata" ColumnName="lokata" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="srednia" ColumnName="srednia" />
+                <ScalarProperty Name="tytul" ColumnName="tytul" />
+                <ScalarProperty Name="tytul_org" ColumnName="tytul_org" />
+                <ScalarProperty Name="rezyseria" ColumnName="rezyseria" />
+                <ScalarProperty Name="udzial" ColumnName="udzial" />
+                <ScalarProperty Name="max" ColumnName="max" />
+                <ScalarProperty Name="imdb" ColumnName="imdb" />
+                <ScalarProperty Name="kategoria" ColumnName="kategoria" />
+                <ScalarProperty Name="dlugosc" ColumnName="dlugosc" />
+                <ScalarProperty Name="obsada" ColumnName="obsada" />
+                <ScalarProperty Name="zrodlo" ColumnName="zrodlo" />
+                <ScalarProperty Name="hit" ColumnName="hit" />
+                <ScalarProperty Name="obejrzany" ColumnName="obejrzany" />
+                <ScalarProperty Name="poster_link" ColumnName="poster_link" />
+                <ScalarProperty Name="opis" ColumnName="opis" />
+                <ScalarProperty Name="link" ColumnName="link" />
+                <ScalarProperty Name="kraj" ColumnName="kraj" />
+                <ScalarProperty Name="rok" ColumnName="rok" />
+                <ScalarProperty Name="nieaktywny" ColumnName="nieaktywny" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="hsp_turniejeSelectByIdFilmu" FunctionName="FilmyModel.Store.hsp_turniejeSelectByIdFilmu">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="FilmyModel.hsp_turniejeSelectByIdFilmu_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nick" ColumnName="nick" />
+                <ScalarProperty Name="ilosc" ColumnName="ilosc" />
+                <ScalarProperty Name="lokata" ColumnName="lokata" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetSkresleniaByIdFilmu" FunctionName="FilmyModel.Store.hsp_turniejeSelectByIdFilmu">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="FilmyModel.SkresleniaEF">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nick" ColumnName="nick" />
+                <ScalarProperty Name="ilosc" ColumnName="ilosc" />
+                <ScalarProperty Name="lokata" ColumnName="lokata" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

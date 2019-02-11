@@ -1,0 +1,48 @@
+﻿<Window x:Class="MovieSelector2.View.WindowDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MovieSelector2.View"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
+        mc:Ignorable="d" Height="120" Width="200" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterOwner" x:Name="window" >
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <StackPanel Grid.ColumnSpan="2" Margin="10,10,10,0">
+            <Border Margin="10,0" BorderThickness="1" BorderBrush="LightGray" />
+            <TextBlock  Text="{Binding Tekst}" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center"/>
+            <Border Margin="10,2" BorderThickness="1" BorderBrush="LightGray" />
+        </StackPanel>
+        <Button Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Margin="10" Command="{Binding ClickCommand}" CommandParameter="true">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="Ikonki/accept.png" Width="16" Height="16"/>
+                <TextBlock Text="TAK" Margin="2" VerticalAlignment="Center"/>
+            </StackPanel>
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="Click">
+                    <ei:CallMethodAction TargetObject="{Binding ElementName=window}" MethodName="Close"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </Button>
+        <Button Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Margin="10" Command="{Binding ClickCommand}" CommandParameter="false" >
+            <StackPanel Orientation="Horizontal">
+                <Image Source="Ikonki/cancel.png" Width="16" Height="16"/>
+                <TextBlock Text="NIE" Margin="2" VerticalAlignment="Center"/>
+            </StackPanel>
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="Click">
+                    <ei:CallMethodAction TargetObject="{Binding ElementName=window}" MethodName="Close"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </Button>
+
+    </Grid>
+</Window>
